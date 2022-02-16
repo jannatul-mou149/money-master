@@ -19,11 +19,11 @@
     <section class="container">
         <h1 class="text-center p-4">Personal Piggy</h1>
         <div class="row">
-            <div class="col-lg-6 mb-5">
+            <div class="col-lg-8">
                 <img class="img-fluid" src="images/piggy-bank.jpg" alt="">
             </div>
-            <div class="col-lg-6 col-lg-offset-6 p-5">
-                <form>
+            <div class="col-lg-4 col-lg-offset-6 p-5 bg-light">
+                <form class="justify-content-center align-items-center">
                     <h5>Income</h5>
                     <div class="row g-3 align-items-center">
                         <div class="col-auto">
@@ -36,29 +36,30 @@
                     <h5 class="mt-3">Expenses</h5>
                     <div class="row g-3 align-items-center">
                         <div class="col-auto">
-                            <label for="income-input" class="col-form-label ">Food : </label>
+                            <label for="food-input" class="col-form-label ">Food : </label>
                         </div>
                         <div class="col-auto">
-                            <input type="text" id="income-input" class="form-control">
+                            <input type="text" id="food-input" class="form-control">
                         </div>
                     </div>
                     <div class="row mt-2 g-3 align-items-center">
                         <div class="col-auto">
-                            <label for="income-input" class="col-form-label ">Rent : </label>
+                            <label for="rent-input" class="col-form-label ">Rent : </label>
                         </div>
                         <div class="col-auto">
-                            <input type="text" id="income-input" class="form-control">
+                            <input type="text" id="rent-input" class="form-control">
                         </div>
                     </div>
                     <div class="row mt-2  g-3 align-items-center">
                         <div class="col-auto">
-                            <label for="income-input" class="col-form-label ">Clothes :</label>
+                            <label for="clothes-input" class="col-form-label ">Clothes :</label>
                         </div>
                         <div class="col-auto">
-                            <input type="text" id="income-input" class="form-control">
+                            <input type="text" id="clothes-input" class="form-control">
                         </div>
                     </div>
-                    <button type="button" class="btn btn-primary col-4 mx-auto mt-3">Calculate</button>
+                    <button id="calculate-btn" type="button"
+                        class="btn btn-primary col-4 mx-auto mt-3">Calculate</button>
                 </form>
                 <div>
                     <h5 class="mt-3">Total Expenses : <span>0</span></h5>
