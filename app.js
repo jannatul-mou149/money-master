@@ -1,5 +1,10 @@
+function incomeInput() {
+    let incomeInputText = document.getElementById("income-input");
+    let incomeInputAmount = parseInt(incomeInputText.value);
+    return incomeInputAmount;
+}
 document.getElementById('calculate-btn').addEventListener('click', function () {
-    incomeInput = document.getElementById('income-input').value;
+    incomeInput();
     let foodInput = document.getElementById('food-input').value;
     let rentInput = document.getElementById('rent-input').value;
     let clothesInput = document.getElementById('clothes-input').value;
@@ -7,18 +12,18 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
     var expenses = document.getElementById('expenses-total');
     var balance = document.getElementById('balance');
 
-    if (isNaN(incomeInput) || isNaN(foodInput) || isNaN(rentInput) || isNaN(clothesInput)) {
+    if (isNaN(incomeInput()) || isNaN(foodInput) || isNaN(rentInput) || isNaN(clothesInput)) {
         alert('You can not input a string');
         location.href = "index.html";
     }
 
-    else if (incomeInput == "" || foodInput == "" || rentInput == "" || clothesInput == "") {
+    else if (incomeInput() == "" || foodInput == "" || rentInput == "" || clothesInput == "") {
         alert('You can not keep input feild empty');
         location.href = "index.html";
     }
     else {
         totalExpenses = parseFloat(foodInput) + parseFloat(rentInput) + parseFloat(clothesInput);
-        balanceNew = incomeInput - totalExpenses;
+        balanceNew = incomeInput() - totalExpenses;
 
         if (balanceNew < 0) {
             alert('Opps!! Your Expenses are bigger than your income.');
@@ -45,15 +50,15 @@ document.getElementById('save-btn').addEventListener('click', function () {
         alert('You can not keep input feild empty');
     }
 
-    let savingammount = incomeInput * (saveInput / 100);
+    let savingammount = incomeInput() * (saveInput / 100);
 
     let temp = savingammount + totalExpenses;
 
-    remain = incomeInput - temp;
+    remain = incomeInput() - temp;
     if (saveInput > 100) {
         alert('You can not save more than 100% of your total income');
     }
-    else if (temp <= incomeInput) {
+    else if (temp <= incomeInput()) {
         savedAmmount.textContent = `${savingammount}`;
         remaining.textContent = `${remain}`;
         message.textContent = "";
