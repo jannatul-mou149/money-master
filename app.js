@@ -14,19 +14,23 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
     var expenses = document.getElementById('expenses-total');
     var balance = document.getElementById('balance');
 
+    //User can't give any string, only numbers allowed
     if (isNaN(incomeInput()) || isNaN(foodInput) || isNaN(rentInput) || isNaN(clothesInput)) {
-        alert('You can not input a string');
+        alert('You can\'t input a string');
     }
-    else if (incomeInput() == 0) {
-        alert('You can not give zero amount in income field');
+    //Income can't be zero , any other expenses can.
+    else if (incomeInput() <= 0 || foodInput < 0 || rentInput < 0 || clothesInput < 0) {
+        alert('Your input amount can\'t be negative');
     }
+    //User can't left any field unfilled
     else if (incomeInput() == "" || foodInput == "" || rentInput == "" || clothesInput == "") {
-        alert('You can not keep input feild empty');
+        alert('You can\'t keep input feild empty');
     }
     else {
         totalExpenses = parseFloat(foodInput) + parseFloat(rentInput) + parseFloat(clothesInput);
         balanceNew = incomeInput() - totalExpenses;
 
+        //If user's income is lower than their expense they get error msg
         if (balanceNew < 0) {
             alert('Opps!! Your Expenses are bigger than your income.');
         }
@@ -49,8 +53,8 @@ document.getElementById('save-btn').addEventListener('click', function () {
         alert('You can not input a string');
     }
 
-    else if (saveInput == "") {
-        alert('You can not keep input feild empty');
+    else if (saveInput == "" || saveInput < 0) {
+        alert('You can\'t keep input feild empty or put negative value');
     }
 
     let savingammount = incomeInput() * (saveInput / 100);
