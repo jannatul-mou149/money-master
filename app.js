@@ -30,4 +30,37 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
     }
 
 })
+document.getElementById('save-btn').addEventListener('click', function () {
+    let saveInput = parseFloat(document.getElementById('save-input').value);
+
+    let savedAmmount = document.getElementById('saving-amount');
+    let remaining = document.getElementById('remaining-balance');
+    message = document.getElementById('message');
+
+    if (isNaN(saveInput)) {
+        alert('You can not input a string');
+    }
+
+    else if (saveInput == "") {
+        alert('You can not keep input feild empty');
+    }
+
+    let savingammount = incomeInput * (saveInput / 100);
+
+    let temp = savingammount + totalExpenses;
+
+    remain = incomeInput - temp;
+    if (saveInput > 100) {
+        alert('You can not save more than 100% of your total income');
+    }
+    else if (temp <= incomeInput) {
+        savedAmmount.textContent = `${savingammount}`;
+        remaining.textContent = `${remain}`;
+        message.textContent = "";
+    }
+    else {
+        message.textContent = `You have left ${balanceNew} taka only. However, you are willing to save ${savingammount} taka.Sorry! you can't do that. Try with lower value`;
+        remaining.textContent = "0";
+    }
+})
 
