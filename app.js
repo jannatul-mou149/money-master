@@ -1,8 +1,10 @@
+//using common incomeInput function to calculate balance & saving amount
 function incomeInput() {
     let incomeInputText = document.getElementById("income-input");
     let incomeInputAmount = parseInt(incomeInputText.value);
     return incomeInputAmount;
 }
+// event handler for calculate btn
 document.getElementById('calculate-btn').addEventListener('click', function () {
     incomeInput();
     let foodInput = document.getElementById('food-input').value;
@@ -14,12 +16,12 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
 
     if (isNaN(incomeInput()) || isNaN(foodInput) || isNaN(rentInput) || isNaN(clothesInput)) {
         alert('You can not input a string');
-        location.href = "index.html";
     }
-
+    else if (incomeInput() == 0) {
+        alert('You can not give zero amount in income field');
+    }
     else if (incomeInput() == "" || foodInput == "" || rentInput == "" || clothesInput == "") {
         alert('You can not keep input feild empty');
-        location.href = "index.html";
     }
     else {
         totalExpenses = parseFloat(foodInput) + parseFloat(rentInput) + parseFloat(clothesInput);
@@ -35,6 +37,7 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
     }
 
 })
+//event handler for saving amount , save button
 document.getElementById('save-btn').addEventListener('click', function () {
     let saveInput = parseFloat(document.getElementById('save-input').value);
 
@@ -64,7 +67,7 @@ document.getElementById('save-btn').addEventListener('click', function () {
         message.textContent = "";
     }
     else {
-        message.textContent = `You have left ${balanceNew} taka only. However, you are willing to save ${savingammount} taka.Sorry! you can't do that. Try with lower value`;
+        message.textContent = `You have left ${balanceNew} taka only. However, you are willing to save ${savingammount} taka.Sorry! you can't do that.Please try with lower Amount.`;
         remaining.textContent = "0";
     }
 })
